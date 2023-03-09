@@ -1,8 +1,11 @@
-function App() {
+import Users from "./components/Users";
 
-  return (
-    <h1>Hello, World!</h1>
-  )
+function App() {
+    return (
+        <div>
+            <Users />
+        </div>
+    );
 }
 
-export default App
+export default App;
