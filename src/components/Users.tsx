@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import User from "./User";
 
 const baseUrl = "https://ulrichsocialapi.onrender.com/users";
 const authUrl = "https://ulrichsocialapi.onrender.com/auth/login";
@@ -69,12 +70,15 @@ export default function Users() {
 
     return (
         <div>
-            {users.map((u: any) => (
-                <ul>
-                    <li key={u.id}>{u.username}</li>
-                    <li key={u.id}>{u.email}</li>
-                </ul>
-            ))}
+            <ul style={{ listStyleType: "none" }}>
+                {users.map(
+                    (u: { id: string; username: string; email: string }) => (
+                        <li key={u.id}>
+                            <User user={u} />
+                        </li>
+                    )
+                )}
+            </ul>
         </div>
     );
 }
